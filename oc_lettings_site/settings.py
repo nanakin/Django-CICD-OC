@@ -1,6 +1,10 @@
+import logging
 import os
+import sentry_sdk
 
 from pathlib import Path
+from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.logging import LoggingIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']  # temporary, to be changed for production setup
 
@@ -112,4 +116,68 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]
+STATICFILES_DIRS = [BASE_DIR / "static", ]
+
+# Logging
+
+logging.basicConfig(level=logging.INFO)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+            'verbose': {
+                'format': '{levelname} {asctime} {module} {message}',
+                'style': '{',
+            },
+        },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+        # 'file': {
+        #     'class': 'logging.FileHandler',
+        #     'filename': BASE_DIR / 'general.log',
+        #     'formatter': 'verbose'
+        # },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "": {
+            "handlers": ["console"],
+            "level": "INFO",
+        }
+    },
+}
+
+# Sentry
+
+# Note that default sentry configuration already includes LoggingIntegration with following
+# parameters:
+# - level=logging.INFO (captured as breadcrumb)
+# - event_level=logging.ERROR (captured as event)
+# if we want to sent events from INFO level messages, we need to explicitly redefine
+# LoggingIntegration with level=logging.INFO
+
+# DjangoIntegration allows capture django errors as events
+
+sentry_sdk.init(
+    # os.environ.get("SENTRY_DSN"),
+    dsn="https://d529c7d5853bb04620a4936a3f50dee9@o4506144422494208" +
+        ".ingest.sentry.io/4506506425860096",  # temp key
+    enable_tracing=True,
+    integrations=[
+        DjangoIntegration(),
+        LoggingIntegration(
+         level=logging.INFO,  # Capture info and above as breadcrumbs
+         event_level=logging.INFO  # Send records as events
+        )
+    ],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    traces_sample_rate=1.0,
+)
