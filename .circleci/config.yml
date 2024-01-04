@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  python: circleci/python@2.1.1
+
+workflows:
+  sample:
+    jobs:
+      - build-and-test
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/python:3.11.6
+
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+
+      - run:
+          name: Run flake8
+          command: flake8 .
+
+      - run:
+          name: Run tests
+          command: pytest
