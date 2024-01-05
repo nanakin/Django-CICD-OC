@@ -7,6 +7,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('oc_lettings_site', '0004_auto_20240102_1431'),
+        ('profiles', '0002_auto_20240102_1433')
     ]
 
     operations = [
