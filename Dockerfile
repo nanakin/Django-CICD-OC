@@ -1,15 +1,16 @@
 # base image : an official Python runtime as a parent image
 FROM python:3.11
 # sets the working directory inside the Docker container to /app (creates the directory if it doesn’t exist)
-WORKDIR /app 
-# copies the file from the project dir on your machine to the CWD inside the container (/app)
+WORKDIR /app
+# install dependencies
 COPY requirements.txt .
-# install dependencies  
-RUN pip3 install --upgrade pip  
-RUN pip3 install -r requirements.txt --no-cache-dir
-# copy whole project to your docker home directory.
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt --no-cache-dir
+# copy whole project to your Docker CWD directory.
 COPY . .
-# port where the Django app runs  
-EXPOSE 8000  
-# command to run when the Docker container is launched (sart the Django app)
-CMD ["python3","manage.py", "runserver", "0.0.0.0:8000"]  
+# port where the Django app runs
+EXPOSE 8000
+# for testing deployment setup purposes (and because we use sqlite) : run DB migrations
+RUN python manage.py migrate
+# command to run when the Docker container is launched (start the Django app)
+CMD ["python3","manage.py", "runserver", "0.0.0.0:8000"]
