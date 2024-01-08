@@ -1,0 +1,6 @@
+.coverage
+.env
+.git
+.pytest_cache
+venv
+*.log
