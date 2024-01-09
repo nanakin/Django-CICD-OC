@@ -1,13 +1,19 @@
 version: 2.1
 
 orbs:
-  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
   python: circleci/python@2.1.1
 
 workflows:
-  sample:
+  my_workflow:
     jobs:
       - build-and-test
+      - build-and-publish-docker-image:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only:
+                - master
 
 jobs:
   build-and-test:
@@ -24,3 +30,22 @@ jobs:
       - run:
           name: Run tests
           command: python -m pytest
+
+  build-and-publish-docker-image:
+    docker:
+      - image: cimg/base:2023.06
+    environment:
+      DOCKER_IMAGE_NAME: lettings-auto-build
+    steps:
+      - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      - run:
+          name: Build and Push application Docker image
+          command: |
+              sudo chmod 666 /var/run/docker.sock
+              echo "$DOCKERHUB_TOKEN" | docker login --username $DOCKERHUB_USERNAME --password-stdin
+              docker build -t "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME" .
+              docker push "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME"
