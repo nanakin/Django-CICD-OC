@@ -13,7 +13,10 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - production
+      - deploy-to-render:
+          requires:
+            - build-and-publish-docker-image
 
 jobs:
   build-and-test:
@@ -49,3 +52,12 @@ jobs:
               echo "$DOCKERHUB_TOKEN" | docker login --username $DOCKERHUB_USERNAME --password-stdin
               docker build -t "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME" .
               docker push "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME"
+
+  deploy-to-render:
+    docker:
+      - image: cimg/base:2023.06
+    steps:
+      - run:
+          name: Deploy to Render
+          command: |
+              curl -X GET $RENDER_DEPLOY_HOOK_URL
