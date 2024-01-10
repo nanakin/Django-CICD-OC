@@ -58,6 +58,6 @@ jobs:
       - image: cimg/base:2023.06
     steps:
       - run:
-          name: Deploy to Render
+          name: Deploy to Render hosting platform
           command: |
               curl -X GET $RENDER_DEPLOY_HOOK_URL
