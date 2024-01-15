@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "django-lettings-cicd"
+version = "0.1.0"
+description = "Orange County Lettings website"
+authors = ["Anna <anna@orangecountylettings.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "3.0"
+sentry-sdk = "1.39.1"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "3.7.0"
+pytest-django = "4.7.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+python_files = "tests.py"
+DJANGO_SETTINGS_MODULE = "oc_lettings_site.settings"
+addopts = "-v --cov --no-cov-on-fail"# --cov-fail-under 80"
+
+[tool.coverage.run]
+source = ["oc_lettings_site", "lettings", "profiles"]
+omit = ["tests.py", "*/migrations/*", "*/asgi.py", "*/wsgi.py"]

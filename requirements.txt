@@ -1,4 +1,0 @@
-django==3.0
-flake8==3.7.0
-pytest-django==4.7.0
-sentry-sdk==1.39.1

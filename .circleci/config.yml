@@ -25,14 +25,15 @@ jobs:
 
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
+      - run:
+          name: Install
+          command: poetry install --no-root
       - run:
           name: Run flake8
-          command: flake8 .
+          command: poetry run flake8 .
       - run:
           name: Run tests
-          command: python -m pytest
+          command: poetry run pytest
 
   build-and-publish-docker-image:
     docker:
