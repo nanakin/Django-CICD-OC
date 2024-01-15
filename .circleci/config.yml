@@ -46,7 +46,7 @@ jobs:
           docker_layer_caching: true
 
       - run:
-          name: Build and push application Docker image
+          name: Build then push the application Docker image
           command: |
               sudo chmod 666 /var/run/docker.sock
               echo "$DOCKERHUB_TOKEN" | docker login --username $DOCKERHUB_USERNAME --password-stdin
