@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "3.0"
+django = "5.0.1"
 sentry-sdk = "1.39.1"
 
 [tool.poetry.group.dev.dependencies]
