@@ -6,8 +6,7 @@ from pytest_django.asserts import assertTemplateUsed
 def test_index_view(client):
     path = reverse("index")
     response = client.get(path)
-    content = response.content.decode()
-    assert "Welcome to Holiday Homes" in content
+    assert "Welcome to Holiday Homes" in response.content.decode()
     assert response.status_code == 200
     assertTemplateUsed(response, "oc_lettings_site/index.html")
 
@@ -31,5 +30,14 @@ def test_500_view(client):
 def test_admin_view(client):
     response = client.get("/admin/login/")
     content = response.content.decode()
-    assert "Django administration" in content
     assert response.status_code == 200
+    assert "Django administration" in content
+
+
+def test_connected_admin_view(admin_client, admin_user):
+    admin_client.login(username=admin_user.username, password=admin_user.password)
+    response = admin_client.get("/admin/")
+    assert response.status_code == 200
+    content = response.content.decode()
+    assert "Site administration" in content
+    assert "Welcome" in content

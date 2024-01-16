@@ -10,6 +10,6 @@ def test_index_url():
 
 @pytest.mark.django_db
 def test_profile_url(profile):
-    path = reverse("profiles:profile", kwargs={"username": "elisa"})
-    assert path == "/profiles/elisa/"
+    path = reverse("profiles:profile", kwargs={"username": profile.user.username})
+    assert path == f"/profiles/{profile.user.username}/"
     assert resolve(path).view_name == "profiles:profile"

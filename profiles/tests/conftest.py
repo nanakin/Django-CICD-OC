@@ -9,6 +9,9 @@ from profiles.models import Profile
 @register
 @register(_name="user_elisa")  # alias the default factory
 @register(_name="user_peter", username="peter", last_name="Parker")
+@register(_name="user_admin", username="thomadmin", is_superuser=True, is_staff=True,
+          is_active=True, email='admin@admin.com',
+          password=factory.PostGenerationMethodCall('set_password', 'adm1n'))
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
