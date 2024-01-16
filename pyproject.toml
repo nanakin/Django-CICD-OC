@@ -14,16 +14,15 @@ sentry-sdk = "1.39.1"
 flake8 = "3.7.0"
 pytest-django = "4.7.0"
 pytest-cov = "^4.1.0"
+pytest-factoryboy = "^2.6.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-python_files = "tests.py"
 DJANGO_SETTINGS_MODULE = "oc_lettings_site.settings"
-addopts = "-v --cov --no-cov-on-fail"# --cov-fail-under 80"
-
+addopts = "-v --cov --cov-report term  --cov-report html --no-cov-on-fail --cov-fail-under 80"
 [tool.coverage.run]
 source = ["oc_lettings_site", "lettings", "profiles"]
-omit = ["tests.py", "*/migrations/*", "*/asgi.py", "*/wsgi.py"]
+omit = ["tests.py", "*/tests/*", "*/migrations/*", "*/asgi.py", "*/wsgi.py"]
