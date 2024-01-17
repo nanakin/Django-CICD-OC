@@ -1,3 +1,17 @@
+"""
+Factories declaration related to the `lettings` app.
+
+fixtures created:
+- profile (also aliased profile_elisa): Elisa's profile
+- profile_peter: Peter's profile
+- user_admin: a superuser
+
+note:
+Factories aim to simplify tests' setup by providing an easy-to-use interface for building
+complicated objects and relations (especially when combined with subfactories, lazy attributes and
+faker).
+"""
+
 import factory
 import pytest
 from django.contrib.auth.models import User
@@ -13,6 +27,7 @@ from profiles.models import Profile
           is_active=True, email='admin@admin.com',
           password=factory.PostGenerationMethodCall('set_password', 'adm1n'))
 class UserFactory(factory.django.DjangoModelFactory):
+    """Factory for `User` model."""
     class Meta:
         model = User
 
@@ -24,6 +39,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 @register(_name="profile_elisa")  # alias the default factory
 @register(_name="profile_peter", favorite_city="London")
 class ProfileFactory(factory.django.DjangoModelFactory):
+    """Factory for `Profile` model."""
     class Meta:
         model = Profile
 
@@ -33,5 +49,5 @@ class ProfileFactory(factory.django.DjangoModelFactory):
 
 @pytest.fixture
 def profile_peter__user(user_peter):
-    """Make the link between the peter profile and the peter user."""
+    """Make the link between the Peter profile and the Peter user."""
     return user_peter

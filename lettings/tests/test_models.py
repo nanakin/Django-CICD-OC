@@ -1,3 +1,5 @@
+"""Test models for the `lettings` app."""
+
 import pytest
 
 from lettings.models import Address, Letting
@@ -17,7 +19,7 @@ def test_letting_fixture_type(letting):
 
 @pytest.mark.django_db
 def test_address_model(address):
-    """Test Address model attributes and meta."""
+    """Test `Address` model attributes and meta."""
     assert address.number == 1
     assert address.street == "rue de la paix"
     assert address.city == "Paris"
@@ -31,7 +33,7 @@ def test_address_model(address):
 
 @pytest.mark.django_db
 def test_letting_model(letting):
-    """Test letting model attributes."""
+    """Test `Letting` model attributes."""
     assert letting.title == "appartment in Paris"
     assert str(letting) == "appartment in Paris"
     assert letting.address.number == 1

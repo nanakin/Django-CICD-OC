@@ -1,3 +1,5 @@
+"""Test models for the `profiles` app."""
+
 import pytest
 
 from profiles.models import Profile
@@ -11,7 +13,7 @@ def test_profile_fixture_type(profile):
 
 @pytest.mark.django_db
 def test_profile_model(profile):
-    """Test profile model attributes."""
+    """Test `Profile` model attributes."""
     assert profile.favorite_city == "Paris"
     assert profile.user.username == "elisa"
     assert str(profile) == "elisa"

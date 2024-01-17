@@ -1,3 +1,5 @@
+"""Test views for the `lettings` app."""
+
 import pytest
 from django.urls import reverse
 from pytest_django.asserts import assertTemplateUsed
@@ -5,6 +7,7 @@ from pytest_django.asserts import assertTemplateUsed
 
 @pytest.mark.django_db
 def test_index_view(client, profile_elisa, profile_peter):
+    """Verify that `index` view calls the right template and display the list of profiles."""
     path = reverse("profiles:index")
     response = client.get(path)
     content = response.content.decode()
@@ -17,6 +20,7 @@ def test_index_view(client, profile_elisa, profile_peter):
 
 @pytest.mark.django_db
 def test_profile_view(client, profile_peter):
+    """Verify that `profile` view calls the right template and display the profile."""
     path = reverse("profiles:profile", kwargs={"username": "peter"})
     response = client.get(path)
     content = response.content.decode()
@@ -29,6 +33,7 @@ def test_profile_view(client, profile_peter):
 
 @pytest.mark.django_db
 def test_empty_profiles_list_view(client, caplog):
+    """Verify that empty profiles list generates a log."""
     path = reverse("profiles:index")
     response = client.get(path)
     assert response.status_code == 200
