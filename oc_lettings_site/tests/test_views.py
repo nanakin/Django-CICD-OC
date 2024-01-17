@@ -6,7 +6,7 @@ from pytest_django.asserts import assertTemplateUsed
 
 
 def test_index_view(client):
-    """Verify that `index` view is OK and calls the right template."""
+    """Verify that :view:`oc_lettings_site.index` is OK and calls the right template."""
     path = reverse("index")
     response = client.get(path)
     assert "Welcome to Holiday Homes" in response.content.decode()

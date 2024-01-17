@@ -1,6 +1,12 @@
+"""Defines *views* for `oc_lettings_site`."""
+
 from django.shortcuts import render
 
 
-# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie quam lobortis leo con
 def index(request):
+    """Display the home page.
+
+    Template:
+    :template:`'oc_lettings_site/index.html`
+    """
     return render(request, 'oc_lettings_site/index.html')

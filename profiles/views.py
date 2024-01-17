@@ -1,3 +1,5 @@
+"""Defines *views* for `profiles` app."""
+
 from django.shortcuts import render
 from .models import Profile
 
@@ -7,8 +9,12 @@ import logging
 logger = logging.getLogger()
 
 
-# Sed placerat quam in pulvinar commodo. Nullam laoreet consectetur ex, sed co
 def index(request):
+    """Display list of :model:`profiles.profile`.
+
+    Template:
+    :template:`profiles/index.html`
+    """
     logger.info('accessing profiles index')
     profiles_list = Profile.objects.all()
     if len(profiles_list) == 0:
@@ -17,8 +23,12 @@ def index(request):
     return render(request, 'profiles/index.html', context)
 
 
-# Aliquam sed metus eget nisi tincidunt ornare accumsan eget lac
 def profile(request, username):
+    """Display an individual :model:`profiles.profile`.
+
+    Template:
+    :template:`profiles/profile.html`
+    """
     logger.info('accessing profile page', extra=dict(username=username))
     profile = Profile.objects.get(user__username=username)
     # no need to catch DoesNotExist exception, it is already

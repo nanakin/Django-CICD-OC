@@ -7,7 +7,7 @@ from pytest_django.asserts import assertTemplateUsed
 
 @pytest.mark.django_db
 def test_index_view(client, profile_elisa, profile_peter):
-    """Verify that `index` view calls the right template and display the list of profiles."""
+    """Verify that :view:`profiles.index` displays the list of profiles."""
     path = reverse("profiles:index")
     response = client.get(path)
     content = response.content.decode()
@@ -20,7 +20,7 @@ def test_index_view(client, profile_elisa, profile_peter):
 
 @pytest.mark.django_db
 def test_profile_view(client, profile_peter):
-    """Verify that `profile` view calls the right template and display the profile."""
+    """Verify that :view:`profiles.profile` displays the profile."""
     path = reverse("profiles:profile", kwargs={"username": "peter"})
     response = client.get(path)
     content = response.content.decode()
