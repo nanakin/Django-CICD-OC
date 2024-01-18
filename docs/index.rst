@@ -1,10 +1,6 @@
-.. Holiday Homes documentation master file, created by
-   sphinx-quickstart on Thu Jan 18 10:43:14 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. docs/index.rst
 
-Welcome to Holiday Homes's documentation!
-=========================================
+.. include:: ../README.rst
 
 .. toctree::
    :maxdepth: 2
