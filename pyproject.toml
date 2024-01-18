@@ -16,6 +16,10 @@ pytest-django = "4.7.0"
 pytest-cov = "^4.1.0"
 pytest-factoryboy = "^2.6.0"
 
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.2.6"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
