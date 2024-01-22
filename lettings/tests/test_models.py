@@ -7,19 +7,19 @@ from lettings.models import Address, Letting
 
 @pytest.mark.django_db
 def test_address_fixture_type(address):
-    """Test if address became a fixture of the instance type."""
+    """Test if ``address`` became a fixture of the instance type."""
     assert isinstance(address, Address)
 
 
 @pytest.mark.django_db
 def test_letting_fixture_type(letting):
-    """Test if letting became a fixture of the instance type."""
+    """Test if ``letting`` became a fixture of the instance type."""
     assert isinstance(letting, Letting)
 
 
 @pytest.mark.django_db
 def test_address_model(address):
-    """Test `Address` model attributes and meta."""
+    """Test :class:`lettings.Address` model attributes and meta."""
     assert address.number == 1
     assert address.street == "rue de la paix"
     assert address.city == "Paris"
@@ -33,7 +33,7 @@ def test_address_model(address):
 
 @pytest.mark.django_db
 def test_letting_model(letting):
-    """Test `Letting` model attributes."""
+    """Test :class:`lettings.Letting` model attributes."""
     assert letting.title == "appartment in Paris"
     assert str(letting) == "appartment in Paris"
     assert letting.address.number == 1

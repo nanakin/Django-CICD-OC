@@ -10,7 +10,7 @@ logger = logging.getLogger()
 
 
 def index(request):
-    """Display list of :model:`profiles.profile`.
+    """Display list of :class:`profiles.profile`.
 
     Template:
     :template:`profiles/index.html`
@@ -24,7 +24,7 @@ def index(request):
 
 
 def profile(request, username):
-    """Display an individual :model:`profiles.profile`.
+    """Display an individual :class:`profiles.profile`.
 
     Template:
     :template:`profiles/profile.html`

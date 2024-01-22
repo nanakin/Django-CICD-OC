@@ -1,10 +1,10 @@
 """
-Factories declaration related to the `lettings` app.
+Factories declaration related to the :mod:`lettings` app.
 
 fixtures created:
-- letting (also aliased letting_london): a letting in London
-- letting_paris: a letting in Paris
-- address: an address in Paris
+- ``letting`` (also aliased ``letting_london``): a letting in London
+- ``letting_paris``: a letting in Paris
+- ``address``: an address in Paris
 
 note:
 Factories aim to simplify tests' setup by providing an easy-to-use interface for building
@@ -23,7 +23,7 @@ from lettings.models import Address, Letting
 @register(_name="address_paris")  # alias the default factory
 @register(_name="address_london", city="London")
 class AddressFactory(factory.django.DjangoModelFactory):
-    """Factory for `Address` model."""
+    """Factory for :class:`lettings:Address` model."""
     class Meta:
         model = Address
 
@@ -39,7 +39,7 @@ class AddressFactory(factory.django.DjangoModelFactory):
 @register(_name="letting_paris")  # alias the default factory
 @register(_name="letting_london", title="house in London")
 class LettingFactory(factory.django.DjangoModelFactory):
-    """Factory for `Letting` model."""
+    """Factory for :class:`lettings.Letting` model."""
     class Meta:
         model = Letting
 
@@ -49,5 +49,5 @@ class LettingFactory(factory.django.DjangoModelFactory):
 
 @pytest.fixture
 def letting_london__address(address_london):
-    """Make the relation between the london letting and the london address."""
+    """Make the relation between the ``london_letting`` and the ``london_address`` fixtures."""
     return address_london

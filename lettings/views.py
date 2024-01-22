@@ -1,4 +1,4 @@
-"""Defines *views* for `lettings` app."""
+"""Defines *views* for :mod:`lettings` app."""
 
 from django.shortcuts import render
 from .models import Letting
@@ -10,10 +10,9 @@ logger = logging.getLogger()
 
 
 def index(request):
-    """Display list of :model:`lettings.Letting`.
+    """Display list of :class:`lettings.Letting`.
 
-    Template:
-    :template:`lettings/index.html`
+    Template: `lettings/index.html`
     """
     lettings_list = Letting.objects.all()
     logger.info('accessing lettings index')
@@ -24,10 +23,9 @@ def index(request):
 
 
 def letting(request, letting_id):
-    """Display an individual :model:`lettings.Letting`.
+    """Display an individual :class:`lettings.Letting`.
 
-    Template:
-    :template:`lettings/letting.html`
+    Template: `lettings/letting.html`
     """
     logger.info('accessing letting page', extra=dict(letting_id=letting_id))
     letting = Letting.objects.get(id=letting_id)

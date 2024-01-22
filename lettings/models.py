@@ -23,7 +23,7 @@ class Address(models.Model):
 class Letting(models.Model):
     """Stores a single letting entry.
 
-    Related to :model:`lettings.Address`."""
+    Related to :class:`lettings.Address`."""
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
