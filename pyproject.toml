@@ -11,6 +11,7 @@ django = "5.0.1"
 sentry-sdk = "1.39.1"
 python-decouple = "^3.8"
 gunicorn = "^21.2.0"
+whitenoise = "^6.6.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "3.7.0"
