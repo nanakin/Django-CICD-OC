@@ -14,8 +14,7 @@ COPY . .
 RUN poetry install --no-root
 # port where the Django app runs
 EXPOSE 8000
-# run DB migrations (probably temporary)
-# for testing deployment setup purposes (and because we use sqlite)
-RUN poetry run python manage.py migrate
-# command to run when the Docker container is launched (start the Django app)
-CMD ["poetry", "run", "python","manage.py", "runserver", "0.0.0.0:8000"]
+# redefine container entrypoint
+ADD docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod a+x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
