@@ -1,3 +1,5 @@
+"""Defines *views* for :mod:`lettings` app."""
+
 from django.shortcuts import render
 from .models import Letting
 
@@ -7,8 +9,11 @@ import logging
 logger = logging.getLogger()
 
 
-# Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit.
 def index(request):
+    """Display list of :class:`lettings.Letting`.
+
+    Template: `lettings/index.html`
+    """
     lettings_list = Letting.objects.all()
     logger.info('accessing lettings index')
     if len(lettings_list) == 0:
@@ -17,8 +22,11 @@ def index(request):
     return render(request, 'lettings/index.html', context)
 
 
-# Cras ultricies dignissim purus, vitae hendrerit ex varius non. In accumsan
 def letting(request, letting_id):
+    """Display an individual :class:`lettings.Letting`.
+
+    Template: `lettings/letting.html`
+    """
     logger.info('accessing letting page', extra=dict(letting_id=letting_id))
     letting = Letting.objects.get(id=letting_id)
     # no need to catch DoesNotExist exception, it is already
