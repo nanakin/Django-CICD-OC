@@ -49,10 +49,15 @@ jobs:
       - run:
           name: Build and Push application Docker image
           command: |
+              COMMIT_TAG=$(git rev-parse --short origin/master)
+              FULL_IMAGE_NAME="$DOCKERHUB_USERNAME"/"$DOCKER_IMAGE_NAME"
               sudo chmod 666 /var/run/docker.sock
+              echo "username: $DOCKERHUB_USERNAME"
+              echo "image name : $FULL_IMAGE_NAME"
+              echo "tags : $FULL_IMAGE_NAME:latest + $FULL_IMAGE_NAME:$COMMIT_TAG"
               echo "$DOCKERHUB_TOKEN" | docker login --username $DOCKERHUB_USERNAME --password-stdin
-              docker build -t "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME" .
-              docker push "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME"
+              docker build -t "$FULL_IMAGE_NAME:latest" -t "$FULL_IMAGE_NAME:$COMMIT_TAG" .
+              docker push --all-tags $FULL_IMAGE_NAME
 
   deploy-to-render:
     docker:
