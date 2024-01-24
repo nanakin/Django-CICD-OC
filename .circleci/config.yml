@@ -40,6 +40,7 @@ jobs:
       - image: cimg/base:2023.06
     environment:
       DOCKER_IMAGE_NAME: lettings-auto-build
+      FULL_IMAGE_NAME: "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME"
     steps:
       - checkout
 
@@ -49,10 +50,11 @@ jobs:
       - run:
           name: Build and Push application Docker image
           command: |
+              COMMIT_TAG=$(git rev-parse --short HEAD)
               sudo chmod 666 /var/run/docker.sock
               echo "$DOCKERHUB_TOKEN" | docker login --username $DOCKERHUB_USERNAME --password-stdin
-              docker build -t "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME" .
-              docker push "$DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME"
+              docker build -t "$FULL_IMAGE_NAME:latest" -t "$FULL_IMAGE_NAME:$COMMIT_TAG" .
+              docker push --all-tags $FULL_IMAGE_NAME
 
   deploy-to-render:
     docker:
