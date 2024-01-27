@@ -70,7 +70,11 @@ Quick-start
 
         poetry run python manage.py migrate
 
-#. Run locally a development server::
+#. Collect static files (if your environment variable DEBUG is False)::
+
+        poetry run python manage.py collectstatic
+
+#. Run a development server locally::
 
         poetry run python manage.py runserver
 
