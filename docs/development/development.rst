@@ -1,15 +1,10 @@
-Development
------------
-| directory structure
-| ├── docs
-| ├── lettings
-| ├── profiles
-| └── oc_lettings_site
-|
-|
+===============
+Developer Guide
+===============
 
 .. toctree::
     :maxdepth: 2
 
     test-suite
     deployment
+    documentation

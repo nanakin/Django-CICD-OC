@@ -14,7 +14,6 @@ from Orange County Lettings
    about
    quick-start
    development/development
-   documentation
    internal/modules
 
 Indices and tables
