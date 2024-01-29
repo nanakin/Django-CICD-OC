@@ -42,8 +42,8 @@ To run it locally (in your project environment)::
 .. note::
    No option required as they are already set in ``.flake8`` file.
 
-.. Note::
-   The project test suite may include in the future the ``flake8`` compliance check directly in the ``pytest`` run, using the ``pytest-flake8`` plugin.
+.. note::
+   In the future, the project test suite may include the ``flake8`` compliance check directly in the ``pytest`` run, using the ``pytest-flake8`` plugin.
 
 
 Dependencies

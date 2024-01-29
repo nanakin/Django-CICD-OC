@@ -7,3 +7,4 @@ Developer Guide
 
     test-suite
     deployment
+    documentation
