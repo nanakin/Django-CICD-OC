@@ -149,12 +149,16 @@ LOGGING = {
     "loggers": {
         "django": {
             "handlers": ["console"],
-            "level": "INFO",
+            "level": config('DJANGO_LOG_LVL', default='INFO'),
             "propagate": False,
+        },
+        "sphinx": {
+            "handlers": ["console"],
+            "level": config('SPHINX_LOG_LVL', default='WARNING'),
         },
         "": {
             "handlers": ["console"],
-            "level": "INFO",
+            "level": config('APP_LOG_LVL', default='INFO'),
         }
     },
 }
