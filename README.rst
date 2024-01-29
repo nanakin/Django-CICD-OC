@@ -74,6 +74,7 @@ Quick-start
 
         poetry run python manage.py migrate
 
+
 #. Collect static files (if your environment variable DEBUG is False)::
 
         poetry run python manage.py collectstatic
