@@ -1,7 +1,16 @@
-Site Module (`oc_lettings_site`)
---------------------------------
-This is the main module.
+Main website (`oc_lettings_site`)
+=========================================
 
-.. automodule:: oc_lettings_site
-    :members:
-    :undoc-members:
+Views
+-----
+.. automodule:: oc_lettings_site.views
+.. autofunction:: oc_lettings_site.views.index
+
+
+URLs
+----
+.. automodule:: oc_lettings_site.urls
+.. literalinclude:: ../../oc_lettings_site/urls.py
+   :caption: in urls.py
+   :language: python
+   :lines: 9-

@@ -1,4 +1,4 @@
-"""Defines *views* for `profiles` app."""
+"""Views for profiles app."""
 
 from django.shortcuts import render
 from .models import Profile
@@ -10,10 +10,9 @@ logger = logging.getLogger()
 
 
 def index(request):
-    """Display list of :class:`profiles.profile`.
+    """Display list of :class:`profiles.Profile`.
 
-    Template:
-    :template:`profiles/index.html`
+    Template: ``profiles/index.html``
     """
     logger.info('accessing profiles index')
     profiles_list = Profile.objects.all()
@@ -24,10 +23,9 @@ def index(request):
 
 
 def profile(request, username):
-    """Display an individual :class:`profiles.profile`.
+    """Display an individual :class:`profiles.Profile`.
 
-    Template:
-    :template:`profiles/profile.html`
+    Template: ``profiles/profile.html``
     """
     logger.info('accessing profile page', extra=dict(username=username))
     profile = Profile.objects.get(user__username=username)

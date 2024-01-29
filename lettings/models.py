@@ -1,11 +1,19 @@
-"""Defines *models* for the `lettings` app."""
+"""Database models for the lettings app."""
 
 from django.db import models
 from django.core.validators import MaxValueValidator, MinLengthValidator
 
 
 class Address(models.Model):
-    """Stores a single address entry."""
+    """Stores a single address entry.
+
+    :param number: The street number.
+    :param street: The street name.
+    :param city: The city name.
+    :param state: The state name.
+    :param zip_code: The zip code.
+    :param country_iso_code: The country ISO code.
+    """
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -23,7 +31,9 @@ class Address(models.Model):
 class Letting(models.Model):
     """Stores a single letting entry.
 
-    Related to :class:`lettings.Address`."""
+    :param title: The title of the letting.
+    :param address: The address of the letting (related to :class:`lettings.Address`).
+    """
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
