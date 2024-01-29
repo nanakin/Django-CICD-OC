@@ -1,4 +1,4 @@
-""":mod:`oc_lettings_site` URL Configuration."""
+"""oc_lettings_site URL Configuration."""
 
 from django.contrib import admin
 from django.urls import path, include

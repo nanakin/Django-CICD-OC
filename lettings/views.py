@@ -1,4 +1,4 @@
-"""Defines *views* for :mod:`lettings` app."""
+"""Views for lettings app."""
 
 from django.shortcuts import render
 from .models import Letting

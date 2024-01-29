@@ -1,4 +1,4 @@
-"""Defines `lettings` *URL* Configuration."""
+"""URL Configuration for lettings app."""
 
 from django.urls import path
 from . import views

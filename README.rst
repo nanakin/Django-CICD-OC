@@ -1,6 +1,7 @@
 =============
 Holiday Homes
 =============
+
 |build-status| |docs|
 
 .. |build-status| image:: https://dl.circleci.com/status-badge/img/circleci/CVZEF2DgaEvNNLCtk1cBjE/hyQGadU9yQwGaXQDDaWPU/tree/master.svg?style=shield&circle-token=122a67c5e3a0cf8dc592279f806555298adcb627
@@ -11,12 +12,6 @@ Holiday Homes
 .. |docs| image:: https://readthedocs.org/projects/holiday-homes/badge/?version=latest
     :target: https://holiday-homes.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
-
-
-
-.. image:: https://github.com/nanakin/OC-P13-Django-CICD/assets/14202917/992d4714-36a2-4970-bcf5-ffd791fb5161
-   :width: 60
-   :align: center
 
 Preamble
 ========
@@ -32,6 +27,10 @@ Project context
 Orange County Lettings is a start-up in the real estate **rental** industry with an **online platform**. 
 The start-up is in the midst of an expansion phase and has decided to hire a new recruit: and here I am. 
 
+.. image:: https://github.com/nanakin/OC-P13-Django-CICD/assets/14202917/992d4714-36a2-4970-bcf5-ffd791fb5161
+   :width: 60
+   :align: center
+
 The company's main needs are as follows:
     - Splitting the existing application to make it more **modular**
     - Adding a comprehensive **test suite**
@@ -43,12 +42,9 @@ Documentation
 =============
 A `documentation of this project <https://holiday-homes.readthedocs.io/en/latest/>`_ is available on ReadTheDocs.
 
-.. inclusion-marker-do-not-remove
-
 Quick-start
 ===========
-
-
+.. inclusion-marker-do-not-remove
 
 #. git clone this repository::
 
@@ -84,6 +80,8 @@ Quick-start
         poetry run python manage.py runserver
 
 #. Open your browser and go to  `<http://127.0.0.1:8000/>`_ to see the application running.
+
+.. quickstart-end-marker
 
 The project design and technologies
 ====================================

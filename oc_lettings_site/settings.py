@@ -152,10 +152,10 @@ LOGGING = {
             "level": config('DJANGO_LOG_LVL', default='INFO'),
             "propagate": False,
         },
-        "sphinx": {
-            "handlers": ["console"],
-            "level": config('SPHINX_LOG_LVL', default='WARNING'),
-        },
+        # "sphinx": {
+        #     "handlers": ["console"],
+        #     "level": config('SPHINX_LOG_LVL', default='WARNING'),
+        # },
         "": {
             "handlers": ["console"],
             "level": config('APP_LOG_LVL', default='INFO'),
@@ -178,11 +178,11 @@ sentry_sdk.init(
     dsn=config('SENTRY_DSN'),
     enable_tracing=True,
     integrations=[
-        DjangoIntegration(),
-        LoggingIntegration(
-         level=logging.INFO,  # Capture info and above as breadcrumbs
-         event_level=logging.INFO  # Send records as events
-        )
+        # DjangoIntegration(),
+        # LoggingIntegration(
+        #  level=logging.INFO,  # Capture info and above as breadcrumbs
+        #  event_level=logging.INFO  # Send records as events
+        # )
     ],
     # Set traces_sample_rate to 1.0 to capture 100%
     traces_sample_rate=1.0,
