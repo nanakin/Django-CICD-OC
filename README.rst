@@ -24,7 +24,7 @@ The following need is fictive.
 
 Project context
 ===============
-Orange County Lettings is a start-up in the real estate **rental** industry with an **online platform**. 
+Orange County Lettings is a start-up in the real estate **rental** industry with an `online platform <https://holidays-homes.onrender.com/>`_.
 The start-up is in the midst of an expansion phase and has decided to hire a new recruit: and here I am. 
 
 .. image:: https://github.com/nanakin/OC-P13-Django-CICD/assets/14202917/992d4714-36a2-4970-bcf5-ffd791fb5161

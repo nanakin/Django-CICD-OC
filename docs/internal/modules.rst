@@ -1,5 +1,6 @@
+=============
 Internals
----------
+=============
 
 .. toctree::
     :caption: Modules
