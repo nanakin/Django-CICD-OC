@@ -2,6 +2,10 @@
 Holiday Homes
 =============
 
+.. image:: https://github.com/nanakin/OC-P13-Django-CICD/assets/14202917/992d4714-36a2-4970-bcf5-ffd791fb5161
+   :width: 60
+   :align: center
+
 Preamble
 ========
 This application was designed for a school project with specific requirements and fixed constraints (for example, the given database was sqlite).
