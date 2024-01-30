@@ -44,6 +44,9 @@ To run the application locally, you can use the following command::
 
 Then, you can access the application at `http://0.0.0.0:8000`.
 
+.. note::
+    In order to push images from the CICD pipeline, to DockerHub, the ``DOCKERHUB_USERNAME`` and ``DOCKERHUB_TOKEN`` environment variables must be set in the CircleCI project settings.
+
 Render
 ------
 

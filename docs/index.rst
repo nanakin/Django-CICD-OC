@@ -3,22 +3,16 @@
 =======================
  Holiday Homes website
 =======================
-from Orange County Lettings
+By Orange County Lettings
 
 `GitHub project <https://github.com/nanakin/OC-P13-Django-CICD>`_
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
+   :titlesonly:
 
    about
    quick-start
    development/development
    internal/modules
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

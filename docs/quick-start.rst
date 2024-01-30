@@ -1,5 +1,5 @@
 Quick start
------------
+===========
 .. include:: ../README.rst
-  :start-after: inclusion-marker-do-not-remove
+  :start-after: quickstart-start-marker
   :end-before: quickstart-end-marker

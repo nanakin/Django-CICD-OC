@@ -41,9 +41,30 @@ Documentation
 =============
 A `documentation of this project <https://holiday-homes.readthedocs.io/en/latest/>`_ is available on ReadTheDocs.
 
+.. inclusion-marker-do-not-remove
+
+The project design and technologies
+====================================
+
+Technologies
+------------
+* The online platform is made with the ``Django`` web framework.
+* Its data is stored in a relational database ``sqlite``.
+* The Python testing framework used for that project is ``pytest``, coupled with ``coverage``.
+* The log messages inserted in the code and Django's errors messages are tracked and monitored by ``Sentry``.
+* The chosen CI/CD platform to automate the build, test, and deployment is ``CircleCI``.
+* Commits on ``master`` branch trigger build and push of a ``Docker`` image to the ``DockerHub`` registry.
+* The Docker image is then auto-deployed on the ``Render`` web service host.
+* The documentation is build with ``sphinx`` and deployed on ``ReadTheDocs``.
+
+More details
+------------
+* Read `Development Guide <https://holiday-homes.readthedocs.io/en/latest/development/development.html>`_ to know more about the testing and the deployment process.
+* Read `Internals <https://holiday-homes.readthedocs.io/en/latest/internal/modules.html>`_ to know more about technical aspects of the web application (models, URLs, etc.).
+
 Quick-start
 ===========
-.. inclusion-marker-do-not-remove
+.. quickstart-start-marker
 
 #. git clone this repository::
 
@@ -81,22 +102,3 @@ Quick-start
 #. Open your browser and go to  `<http://127.0.0.1:8000/>`_ to see the application running.
 
 .. quickstart-end-marker
-
-The project design and technologies
-====================================
-
-Technologies:
--------------
-* The online platform is made with the ``Django`` web framework.
-* Its data is stored in a relational database ``sqlite``.
-* The Python testing framework used for that project is ``pytest``, coupled with ``coverage``.
-* The log messages inserted in the code and Django's errors messages are tracked and monitored by ``Sentry``.
-* The chosen CI/CD platform to automate the build, test, and deployment is ``CircleCI``.
-* Commits on ``master`` branch trigger build and push of a ``Docker`` image to the ``DockerHub`` registry.
-* The Docker image is then auto-deployed on the ``Render`` web service host.
-* The documentation is build with ``sphinx`` and deployed on ``ReadTheDocs``.
-
-More details
-------------
-* Read `Development Guide <https://holiday-homes.readthedocs.io/en/latest/development/development.html>`_ to know more about the testing and the deployment process.
-* Read `Internals <https://holiday-homes.readthedocs.io/en/latest/internal/modules.html>`_ to know more about technical aspects of the web application (models, URLs, etc.).

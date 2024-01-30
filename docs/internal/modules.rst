@@ -5,6 +5,7 @@ Internals
 .. toctree::
     :caption: Modules
     :maxdepth: 1
+    :titlesonly:
 
     site-module
     lettings-module
