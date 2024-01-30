@@ -10,7 +10,7 @@ logger = logging.getLogger()
 
 
 def index(request):
-    """Display list of :class:`lettings.Letting`.
+    """Display a list of :class:`lettings.Letting`.
 
     Template: `lettings/index.html`
     """

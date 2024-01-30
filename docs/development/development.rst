@@ -5,6 +5,6 @@ Developer Guide
 .. toctree::
     :maxdepth: 2
 
-    test-suite
+    testsuite
     deployment
     documentation

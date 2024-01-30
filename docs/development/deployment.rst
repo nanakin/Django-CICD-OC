@@ -12,7 +12,7 @@ CI/CD Workflow
 --------------
 There are 3 jobs in the workflow, with the following actions:
 
-* to run the test suite
+* to run the testsuite
 * to build the docker image and to push it to DockerHub
 * to deploy the new image on Render
 
@@ -22,21 +22,21 @@ The presented order has its importance: the docker job is run only if the tests 
 
 The workflow is defined in the ``.circleci/config.yml`` file.
 
-Focus on Docker
----------------
+Docker
+------
 The docker image is built using the ``Dockerfile`` in the root of the project.
 
 The application image:
 
-* is based on the small Linux image with a Python runtime (``python:3.11-slim``)
-* installs the project dependencies and the project itself (using ``Poetry``).
-* exposes the port 8000
+* is based on a small Linux image with a Python runtime (``python:3.11-slim``),
+* installs the project dependencies and the project itself (using ``Poetry``),
+* exposes the port 8000,
 * defines the entrypoint script to run the migrations, the collectstatic command and the server itself using ``gunicorn``.
 
 The entrypoint script is defined in the ``docker-entrypoint.sh`` file, in the root of the project.
 
 The docker image is available on DockerHub at the following address: `lettings-auto-build <https://hub.docker.com/r/nannakin/lettings-auto-build>`_.
-The latest build is tagged ``latest``, in addition to git commit hash tags.
+Images are tagged with their git commit hash, and the latest build is also tagged ``latest``.
 
 To run the application locally, you can use the following command::
 
@@ -44,8 +44,8 @@ To run the application locally, you can use the following command::
 
 Then, you can access the application at `http://0.0.0.0:8000`.
 
-Focus on Render
----------------
+Render
+------
 
 The project Render web service is parametrized to use the ``nannakin/lettings-auto-build:latest`` docker image.
 

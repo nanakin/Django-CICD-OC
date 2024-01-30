@@ -10,7 +10,7 @@ logger = logging.getLogger()
 
 
 def index(request):
-    """Display list of :class:`profiles.Profile`.
+    """Display a list of :class:`profiles.Profile`.
 
     Template: ``profiles/index.html``
     """

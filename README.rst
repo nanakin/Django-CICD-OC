@@ -32,7 +32,7 @@ The start-up is in the midst of an expansion phase and has decided to hire a new
 The company's main needs are as follows:
 
 * Splitting the existing application to make it more **modular**,
-* Adding a comprehensive **test suite**,
+* Adding a comprehensive **testsuite**,
 * Creating a **CI/CD pipeline**,
 * Tracking and monitoring **logs** and **errors**,
 * **Documenting** the application.
@@ -96,7 +96,7 @@ Technologies:
 * The Docker image is then auto-deployed on the ``Render`` web service host.
 * The documentation is build with ``sphinx`` and deployed on ``ReadTheDocs``.
 
-More details in documentation
------------------------------
+More details
+------------
 * Read `Development Guide <https://holiday-homes.readthedocs.io/en/latest/development/development.html>`_ to know more about the testing and the deployment process.
 * Read `Internals <https://holiday-homes.readthedocs.io/en/latest/internal/modules.html>`_ to know more about technical aspects of the web application (models, URLs, etc.).
