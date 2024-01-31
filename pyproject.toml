@@ -30,7 +30,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "oc_lettings_site.settings"
-addopts = "-v --cov --cov-report term  --cov-report html --no-cov-on-fail --cov-fail-under 80"
+addopts = "-v --cov --cov-report term --no-cov-on-fail --cov-fail-under 80"
 [tool.coverage.run]
 source = ["oc_lettings_site", "lettings", "profiles"]
 omit = ["tests.py", "*/tests/*", "*/migrations/*", "*/asgi.py", "*/wsgi.py"]
