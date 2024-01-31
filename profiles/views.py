@@ -30,7 +30,7 @@ def profile(request, username):
     logger.info('accessing profile page', extra=dict(username=username))
     profile = Profile.objects.get(user__username=username)
     # no need to catch DoesNotExist exception, it is already
-    # - handled by the framework to produce 404
+    # - handled by the framework to produce 500
     # - logged and sent to sentry thanks to DjangoIntegration
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)

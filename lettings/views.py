@@ -30,7 +30,7 @@ def letting(request, letting_id):
     logger.info('accessing letting page', extra=dict(letting_id=letting_id))
     letting = Letting.objects.get(id=letting_id)
     # no need to catch DoesNotExist exception, it is already
-    # - handled by the framework to produce 404
+    # - handled by the framework to produce 500
     # - logged and sent to sentry thanks to DjangoIntegration
     context = {
         'title': letting.title,
