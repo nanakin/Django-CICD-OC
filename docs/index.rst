@@ -1,7 +1,7 @@
 .. docs/index.rst
 
 =======================
- Holiday Homes website
+ Red Homes website
 =======================
 By Orange County Lettings
 
