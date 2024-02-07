@@ -4,8 +4,8 @@ Holiday Homes |logo|
 
 |build-status| |docs|
 
-.. |build-status| image:: https://dl.circleci.com/status-badge/img/gh/nanakin/OC-P13-Django-CICD/tree/master.svg?style=shield
-    :target: https://dl.circleci.com/status-badge/redirect/gh/nanakin/OC-P13-Django-CICD/tree/master
+.. |build-status| image:: https://dl.circleci.com/status-badge/img/gh/nanakin/Django-CICD-OC/tree/master.svg?style=shield
+    :target: https://dl.circleci.com/status-badge/redirect/gh/nanakin/Django-CICD-OC/tree/master
     :alt: Build Status
 
 .. |docs| image:: https://readthedocs.org/projects/holiday-homes/badge/?version=latest
@@ -21,6 +21,8 @@ Preamble
 This application was designed for a school project with specific requirements and fixed constraints (for example, the given database was sqlite).
 This project is not intended be perfect and to evolve that much once finished. 
 For that reason, this project is not open to contribution.
+
+This project aims to improve an existing code base (then test it, deploy it and document it). To achieve this, I started by forking the original repository. Therefore, the HTML templates, CSS code, models, and views are not originally written by me.
 
 The following need is fictive.
 
